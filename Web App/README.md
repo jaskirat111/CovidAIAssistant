@@ -50,3 +50,16 @@ The current COVID-19 X-Ray dataset is constructed by the following open source c
 
 <!--We especially thank the Radiological Society of North America, National Institutes of Health, Figure1, Actualmed, M.E.H. Chowdhury et al., Dr. Joseph Paul Cohen and the team at MILA involved in the COVID-19 image data collection project for making data available to the global community.-->
 
+## COVID-19 X-Ray data distribution
+
+Chest radiography images distribution
+|  Type | Normal | Pneumonia | COVID-19 | Total |
+|:-----:|:------:|:---------:|:--------:|:-----:|
+| train |  7966  |    5459   |   473    | 13898 |
+|  test |   100  |     100   |   100    |   300 |
+
+Patients distribution
+|  Type | Normal | Pneumonia | COVID-19 |  Total |
+|:-----:|:------:|:---------:|:--------:|:------:|
+| train |  7966  |    5444   |    320   |  13730 |
+|  test |   100  |      98   |     74   |    272 |
