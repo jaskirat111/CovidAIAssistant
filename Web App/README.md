@@ -140,3 +140,35 @@ With shortages and delays in PCR tests, chest X-Rays and CTs have become one of 
 
 We would like to thank deeply the team behind [COVID-Net Open Source Initiative](https://github.com/lindawangg/COVID-Net) and Self-trans Open Source Initiative (https://github.com/UCSD-AI4H/COVID-CT) . Our project is an attempt to incorporate COVID-Net as well as Self-Trans model into the heart of a web-based application that could be used by health care providers as a supportive tool on the examination process and patient triage.
 
+## Demo
+
+A live demo of the web application is currently running here: https://covid-ai-assistant.herokuapp.com/
+
+## How to use
+
+**Step 1**: Open the application via a web browser and click on Detect Covid.
+
+<p align="center">
+    <img src="screenshots/homepage.png" alt="" width="90%">
+</p>
+
+**Step 2**: Select whether you want to Upload the Chest X-Ray or Chest CT image for prediction. For testing purposes, you can use the sample images that we have provided in the sample folder.
+
+<p align="center">
+    <img src="screenshots/upload-image.png" alt="" width="90%">
+</p>
+
+
+**Step 2**: After uploading Chest X-Ray image, the Result page would show the input image and the corresponding Activation Map of the X-Ray and finally the prediction Class label with confidence scores (usually this takes less than 3 seconds)
+
+<p align="center">
+    <img src="screenshots/chest-ray-result.png" alt="" width="90%">
+</p>
+
+
+
+**Step 4**: If Chest CT Image is uploaded , the Result page would show the input CT image and finally the prediction Class label with confidence scores (usually this takes less than 3 seconds)
+
+<p align="center">
+    <img src="screenshots/ct-scan-result.png" alt="" width="90%">
+</p>
