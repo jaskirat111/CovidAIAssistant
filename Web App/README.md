@@ -125,3 +125,10 @@ These are the final results for the AI models.
   </tr>
 </table></div>
 
+### Covid19 CT Model
+
+F1: 0.85
+
+Accuracy: 0.86
+
+AUC: 0.94
