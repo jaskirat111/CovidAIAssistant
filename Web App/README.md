@@ -88,3 +88,40 @@ Patients distribution
 | train |        105       |  1-130   |   235  |
 |  val  |         24       | 131-162  |    56  |
 |  test |         42       | 163-216  |    96   |
+
+## Results
+These are the final results for the AI models.
+
+### Covid19 X-Ray Model (100 COVID-19 Test Images)
+<div class="tg-wrap"><table class="tg">
+  <tr>
+    <th class="tg-7btt" colspan="3">Sensitivity (%)</th>
+  </tr>
+  <tr>
+    <td class="tg-7btt">Normal</td>
+    <td class="tg-7btt">Pneumonia</td>
+    <td class="tg-7btt">COVID-19</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">95.0</td>
+    <td class="tg-c3ow">89.0</td>
+    <td class="tg-c3ow">96.0</td>
+  </tr>
+</table></div>
+
+<div class="tg-wrap"><table class="tg">
+  <tr>
+    <th class="tg-7btt" colspan="3">Positive Predictive Value (%)</th>
+  </tr>
+  <tr>
+    <td class="tg-7btt">Normal</td>
+    <td class="tg-7btt">Pneumonia</td>
+    <td class="tg-7btt">COVID-19</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">90.5</td>
+    <td class="tg-c3ow">93.7</td>
+    <td class="tg-c3ow">96.0</td>
+  </tr>
+</table></div>
+
