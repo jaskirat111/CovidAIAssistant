@@ -54,18 +54,18 @@ This dataset contains 20 labeled COVID-19 CT scans. Left lung, right lung, and i
 # Custom Vision Azure Service for Classification of Covid-19
 
 <p align="center">
-  <img src="screenshots/dataset.PNG" alt="" width="90%" height="50%">
+  <img src="screenshots/dataset.png" alt="" width="90%" height="50%">
 </p>
 
 # Results
 These are the final results for the AI model.
 
 <p align="center">
-  <img src="screenshots/training.PNG" alt="" width="90%" height="50%">
+  <img src="screenshots/training.png" alt="" width="90%" height="50%">
 </p>
 
 <p align="center">
-  <img src="screenshots/performance.PNG" alt="" width="90%" height="50%">
+  <img src="screenshots/performance.png" alt="" width="90%" height="50%">
 </p>
 
 # How to use
@@ -79,21 +79,21 @@ These are the final results for the AI model.
 **Step 2**: Select either Pick from Gallery or Take with Camera.
 
 <p align="center">
-    <img src="screenshots/gallery.PNG" alt="" width="90%" height="50%">
+    <img src="screenshots/gallery.png" alt="" width="90%" height="50%">
 </p>
 
 
 **Step 3a**: After uploading Chest X-Ray image, the Result page would show the input X_ray image and the corresponding prediction Class label with confidence scores (usually this takes less than 1 second in offline mode)
 
 <p align="center">
-    <img src="screenshots/covid19xray.PNG" alt="" width="90%" height="50%">
+    <img src="screenshots/covid19xray.png" alt="" width="90%" height="50%">
 </p>
 
 
 **Step 3b**: If Chest CT Image is uploaded , the Result page would show the input CT image and the corresponding prediction Class label with confidence scores. (usually this takes less than 1 second in offline mode)
 
 <p align="center">
-    <img src="screenshots/noncovidct.PNG" alt="" width="90%" height="50%">
+    <img src="screenshots/noncovidct.png" alt="" width="90%" height="50%">
 </p>
 
 ## Future
