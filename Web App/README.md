@@ -1,9 +1,7 @@
 # Covid-19 X-Ray / CT Classification Web App
 [![](https://img.shields.io/badge/python-3.7%2B-green.svg)]()
-> A web app to detect covid-19 with accuracy of 93.3% from chest X-rays of patients.
+> A Web Application to detect signs of COVID-19 presence from Chest X-Rays and Chest CTs images using Deep Learning.
 
-
-> A web app to detect covid-19 with accuracy of 95% from chest CT of patients.
 
 ## Getting started in 10 minutes
 
@@ -132,3 +130,13 @@ F1: 0.85
 Accuracy: 0.86
 
 AUC: 0.94
+
+
+## Motivation
+
+With shortages and delays in PCR tests, chest X-Rays and CTs have become one of the fastest and most affordable ways for doctors to triage patients. In many hospitals, patients often have to wait six hours or more for a specialist to look at their X-Rays or CTs. If an emergency room doctor could get an initial reading from an AI-based tool, it could dramatically shrink that wait time. Before the pandemic, health-care AI was already a booming area of research. Deep learning, in particular, has demonstrated impressive results for analyzing medical images to identify diseases like breast and lung cancer or glaucoma at least as accurately as human specialists.
+
+## Acknowledgements
+
+We would like to thank deeply the team behind [COVID-Net Open Source Initiative](https://github.com/lindawangg/COVID-Net) and Self-trans Open Source Initiative (https://github.com/UCSD-AI4H/COVID-CT) . Our project is an attempt to incorporate COVID-Net as well as Self-Trans model into the heart of a web-based application that could be used by health care providers as a supportive tool on the examination process and patient triage.
+
