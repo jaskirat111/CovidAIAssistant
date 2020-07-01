@@ -8,6 +8,11 @@ The outbreak of coronavirus disease 2019 (COVID-19) has been declared a public h
   <li>Open your web browser and go to <b>127.0.0.1:5000</b> to access the Flask App</li>
 </ul>
 
+## How to use Android App
+<ul>
+  <li>Download the CovidAIAssistance.apk in android device and you can test the performnce of the app.</li>
+</ul>
+
 # Authors
 ## Jaskirat Singh
 <ul>
