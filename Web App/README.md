@@ -172,3 +172,8 @@ A live demo of the web application is currently running here: https://covid-ai-a
 <p align="center">
     <img src="screenshots/ct-scan-result (2).png" alt="" width="90%" height="50%">
 </p>
+
+## Future
+
+1) Enrich the dataset with other CT and X-Ray images.
+2) Improve the detection accuracy.
