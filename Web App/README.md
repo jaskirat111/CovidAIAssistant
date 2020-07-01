@@ -18,6 +18,5 @@
   <img src="screenshots/homepage.png" alt="">
 </p>
 
-
-
+For more screenshots, please visit the <b>screenshots folder</b> of my repo, or <a href="https://github.com/jaskirat111/Covid-AI-Assistant/blob/master/Web App/screenshots">click here</a>
 
