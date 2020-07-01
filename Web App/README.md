@@ -13,7 +13,7 @@
 :point_down: Screenshot:
 
 <p align="center">
-  <img src="screenshots/homepage.png" height="480px" alt="">
+  <img src="screenshots/homepage.png" alt="">
 </p>
 
 
