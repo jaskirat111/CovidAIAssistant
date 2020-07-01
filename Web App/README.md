@@ -20,3 +20,21 @@
 
 For more screenshots, please visit the <b>screenshots folder</b> of my repo, or <a href="https://github.com/jaskirat111/Covid-AI-Assistant/blob/master/Web App/screenshots">click here</a>
 
+## Local Installation
+
+It's easy to install and run it on your computer.
+
+```shell
+# 1. First, clone the repo
+$ git clone https://github.com/jaskirat111/Covid-AI-Assistant
+$ cd Covid-AI-Assistant/Web App
+
+# 2. Install Python packages
+$ pip install -r requirements.txt
+
+# 3. Run!
+$ python app.py
+```
+
+Open http://localhost:5000 and have fun. :smiley:
+
