@@ -39,6 +39,7 @@ $ python app.py
 Open http://localhost:5000 and have fun. :smiley:
 
 # COVID-19 X-Ray Dataset
+
 **Dataset contains over 14000 Chest Xray images containing 473 COVID-19 train samples. Test dataset remains the same for consistency.**\
 
 The current COVID-19 X-Ray dataset is constructed by the following open source chest radiography datasets:
@@ -63,3 +64,27 @@ Patients distribution
 |:-----:|:------:|:---------:|:--------:|:------:|
 | train |  7966  |    5444   |    320   |  13730 |
 |  test |   100  |      98   |     74   |    272 |
+
+
+# COVID-19 CT Dataset
+**Dataset contains 349 COVID-19 CT images from 216 patients and 397 non-COVID-19 CTs.**\
+
+The current COVID-19 CT dataset is constructed by the following open source chest radiography datasets:
+* https://github.com/UCSD-AI4H/COVID-CT
+
+# Covid-19 CT Data Distribution
+<!---
+--->
+Images distribution
+|  Type | NonCOVID-19 | COVID-19 |  Total |
+|:-----:|:-----------:|:--------:|:------:|
+| train |      234    |    191   |   425  |
+|  val  |       58    |     60   |   118  |
+|  test |      105    |     98   |   203  |
+
+Patients distribution
+|  Type |    NonCOVID-19   | COVID-19 |  Total |
+|:-----:|:----------------:|:--------:|:------:|
+| train |        105       |  1-130   |   235  |
+|  val  |         24       | 131-162  |    56  |
+|  test |         42       | 163-216  |    96   |
