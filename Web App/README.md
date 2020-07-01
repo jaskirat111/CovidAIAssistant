@@ -13,7 +13,7 @@
 :point_down: Screenshot:
 
 <p align="center">
-  <img src="screenshots/homepage.png" alt="">
+  <img src="screenshots/homepage (2).png" alt="" width="90%" height="50%">
 </p>
 
 For more screenshots, please visit the <b>screenshots folder</b> of my repo, or <a href="https://github.com/jaskirat111/Covid-AI-Assistant/blob/master/Web App/screenshots">click here</a>
@@ -149,26 +149,31 @@ A live demo of the web application is currently running here: https://covid-ai-a
 **Step 1**: Open the application via a web browser and click on Detect Covid.
 
 <p align="center">
-    <img src="screenshots/homepage.png" alt="" width="90%">
+    <img src="screenshots/homepage (2).png" alt="" width="90%" height="50%">
 </p>
 
 **Step 2**: Select whether you want to Upload the Chest X-Ray or Chest CT image for prediction. For testing purposes, you can use the sample images that we have provided in the sample folder.
 
 <p align="center">
-    <img src="screenshots/upload-image.png" alt="" width="90%">
+    <img src="screenshots/upload-image (2).png" alt="" width="90%" height="50%">
 </p>
 
 
-**Step 2**: After uploading Chest X-Ray image, the Result page would show the input image and the corresponding Activation Map of the X-Ray and finally the prediction Class label with confidence scores (usually this takes less than 3 seconds)
+**Step 3a**: After uploading Chest X-Ray image, the Result page would show the input image and the corresponding Activation Map of the X-Ray and finally the prediction Class label with confidence scores (usually this takes less than 3 seconds)
 
 <p align="center">
-    <img src="screenshots/chest-ray-result.png" alt="" width="90%">
+    <img src="screenshots/chest-ray-result (2).png" alt="" width="90%" height="50%">
 </p>
 
 
 
-**Step 4**: If Chest CT Image is uploaded , the Result page would show the input CT image and finally the prediction Class label with confidence scores (usually this takes less than 3 seconds)
+**Step 3b**: If Chest CT Image is uploaded , the Result page would show the input CT image and finally the prediction Class label with confidence scores (usually this takes less than 3 seconds)
 
 <p align="center">
-    <img src="screenshots/ct-scan-result.png" alt="" width="90%">
+    <img src="screenshots/ct-scan-result (2).png" alt="" width="90%" height="50%">
 </p>
+
+## Future
+
+1) Enrich the dataset with other CT and X-Ray images.
+2) Improve the detection accuracy.
