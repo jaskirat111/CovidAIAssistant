@@ -38,7 +38,7 @@ Open http://localhost:5000 and have fun. :smiley:
 
 # COVID-19 X-Ray Dataset
 
-**Dataset contains over 14000 Chest Xray images containing 490 COVID-19 train samples. Test dataset remains the same for consistency.**\
+**Dataset contains over 14000 Chest Xray images containing 490 COVID-19 train samples.**\
 
 The current COVID-19 X-Ray dataset is constructed by the following open source chest radiography datasets:
 
@@ -68,8 +68,9 @@ Patients distribution
 
 # COVID-19 CT Dataset
 
+**CT Dataset contains over 100000 Chest CT images containing 12520 COVID-19 train samples.**\
 
-I constructed the Chest CT dataset from publicly available data provided by the China National Center for Bioinformation (CNCB). Kang Zhang, Xiaohong Liu, Jun Shen, et al. Jianxing He, Tianxin Lin, Weimin Li, Guangyu Wang. (2020). Clinically Applicable AI System for Accurate Diagnosis, Quantitative Measurements and Prognosis of COVID-19 Pneumonia Using Computed Tomography. Cell, DOI: 10.1016/j.cell.2020.04.045 (http://ncov-ai.big.ac.cn/download?)
+* I constructed the Chest CT dataset from publicly available data provided by the China National Center for Bioinformation (CNCB). Kang Zhang, Xiaohong Liu, Jun Shen, et al. Jianxing He, Tianxin Lin, Weimin Li, Guangyu Wang. (2020). Clinically Applicable AI System for Accurate Diagnosis, Quantitative Measurements and Prognosis of COVID-19 Pneumonia Using Computed Tomography. Cell, DOI: 10.1016/j.cell.2020.04.045 (http://ncov-ai.big.ac.cn/download?)
 
 
 # Covid-19 CT Data Distribution
@@ -185,10 +186,10 @@ A live demo of the web application is currently running here: https://covid19-di
 
 
 
-**Step 3b**: If Chest CT Image is uploaded , the Result page would show the input CT image and finally the prediction Class label with confidence scores (usually this takes less than 3 seconds)
+**Step 3b**: If Chest CT Image is uploaded , the Result page would show the input CT image and the corresponding Activation Map of the CT and finally the prediction Class label with confidence scores (usually this takes less than 3 seconds)
 
 <p align="center">
-    <img src="screenshots/ct-scan-result (2).png" alt="" width="90%" height="50%">
+    <img src="screenshots/127.0.0.1_5000_uploaded_ct (1).png" alt="" width="90%" height="50%">
 </p>
 
 ## Future
