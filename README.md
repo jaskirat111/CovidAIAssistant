@@ -52,7 +52,7 @@ Open http://localhost:5000 and have fun. :smiley:
 
 The current COVID-19 X-Ray dataset is constructed by the following open source chest radiography datasets:
 
-* Cohen, J. P., Morrison, P. & Dao, L. COVID-19 image data collection. arXiv 2003.11597 (2020).
+* Cohen, J. P., Morrison, P. & Dao, L. COVID-19 image data collection. arXiv 2003.11597 (2020). https://github.com/ieee8023/covid-chestxray-dataset
 * Chung, A. Figure 1 COVID-19 chest x-ray data initiative. https://github.com/agchung/Figure1-COVID-chestxray-dataset (2020)
 * Chung, A. Actualmed COVID-19 chest x-ray data initiative. https://github.com/agchung/Actualmed-COVID-chestxray-dataset (2020).
 * of North America, R. S. COVID-19 radiography database. https://www.kaggle.com/tawsifurrahman/covid19-radiography-database (2019).
@@ -86,12 +86,22 @@ Patients distribution
 # Covid-19 CT Data Distribution
 <!---
 --->
-Images distribution
+Chest CT image distribution
+
 |  Type | Normal | Pneumonia | COVID-19 | Total |
 |:-----:|:------:|:---------:|:--------:|:-----:|
-| train |  27201 |    22061  |   12520  | 61782 |
-|  Val  |   9107 |     7400  |   4529   | 21036 |
-|  test |   9450 |     7395  |   4346   | 21191 |
+| train |  27201 |   22061   |   12520  | 61782 |
+|   val |   9107 |    7400   |    4529  | 21036 |
+|  test |   9450 |    7395   |    4346  | 21191 |
+
+Patient distribution
+
+|  Type | Normal | Pneumonia | COVID-19 |  Total |
+|:-----:|:------:|:---------:|:--------:|:------:|
+| train |   144  |     420   |    300   |   864  |
+|   val |    47  |     190   |     95   |   332  |
+|  test |    52  |     125   |    116   |   293  |
+
 
 ## Results
 These are the final results for the AI models.
