@@ -38,14 +38,16 @@ Open http://localhost:5000 and have fun. :smiley:
 
 # COVID-19 X-Ray Dataset
 
-**Dataset contains over 14000 Chest Xray images containing 473 COVID-19 train samples. Test dataset remains the same for consistency.**\
+**Dataset contains over 14000 Chest Xray images containing 490 COVID-19 train samples. Test dataset remains the same for consistency.**\
 
 The current COVID-19 X-Ray dataset is constructed by the following open source chest radiography datasets:
-* https://github.com/ieee8023/covid-chestxray-dataset
-* https://github.com/agchung/Figure1-COVID-chestxray-dataset
-* https://github.com/agchung/Actualmed-COVID-chestxray-dataset
-* https://www.kaggle.com/tawsifurrahman/covid19-radiography-database
-* https://www.kaggle.com/c/rsna-pneumonia-detection-challenge (which came from: https://nihcc.app.box.com/v/ChestXray-NIHCC)
+
+* Cohen, J. P., Morrison, P. & Dao, L. COVID-19 image data collection. arXiv 2003.11597 (2020).
+* Chung, A. Figure 1 COVID-19 chest x-ray data initiative. https://github.com/agchung/Figure1-COVID-chestxray-dataset (2020)
+* Chung, A. Actualmed COVID-19 chest x-ray data initiative. https://github.com/agchung/Actualmed-COVID-chestxray-dataset (2020).
+* of North America, R. S. COVID-19 radiography database. https://www.kaggle.com/tawsifurrahman/covid19-radiography-database (2019).
+* of North America, R. S. RSNA pneumonia detection challenge. https://www.kaggle.com/c/rsna-pneumonia-detection-challenge/data (2019).
+
 
 <!--We especially thank the Radiological Society of North America, National Institutes of Health, Figure1, Actualmed, M.E.H. Chowdhury et al., Dr. Joseph Paul Cohen and the team at MILA involved in the COVID-19 image data collection project for making data available to the global community.-->
 
@@ -54,8 +56,8 @@ The current COVID-19 X-Ray dataset is constructed by the following open source c
 Chest radiography images distribution
 |  Type | Normal | Pneumonia | COVID-19 | Total |
 |:-----:|:------:|:---------:|:--------:|:-----:|
-| train |  7966  |    5459   |   473    | 13898 |
-|  test |   100  |     100   |   100    |   300 |
+| train |  7982  |    5459   |   490    | 14053 |
+|  test |   885  |     594   |   100    |  1579 |
 
 Patients distribution
 |  Type | Normal | Pneumonia | COVID-19 |  Total |
@@ -65,32 +67,25 @@ Patients distribution
 
 
 # COVID-19 CT Dataset
-**Dataset contains 349 COVID-19 CT images from 216 patients and 397 non-COVID-19 CTs.**\
 
-The current COVID-19 CT dataset is constructed by the following open source chest radiography datasets:
-* https://github.com/UCSD-AI4H/COVID-CT
+
+I constructed the Chest CT dataset from publicly available data provided by the China National Center for Bioinformation (CNCB). Kang Zhang, Xiaohong Liu, Jun Shen, et al. Jianxing He, Tianxin Lin, Weimin Li, Guangyu Wang. (2020). Clinically Applicable AI System for Accurate Diagnosis, Quantitative Measurements and Prognosis of COVID-19 Pneumonia Using Computed Tomography. Cell, DOI: 10.1016/j.cell.2020.04.045 (http://ncov-ai.big.ac.cn/download?)
+
 
 # Covid-19 CT Data Distribution
 <!---
 --->
 Images distribution
-|  Type | NonCOVID-19 | COVID-19 |  Total |
-|:-----:|:-----------:|:--------:|:------:|
-| train |      234    |    191   |   425  |
-|  val  |       58    |     60   |   118  |
-|  test |      105    |     98   |   203  |
-
-Patients distribution
-|  Type |    NonCOVID-19   | COVID-19 |  Total |
-|:-----:|:----------------:|:--------:|:------:|
-| train |        105       |  1-130   |   235  |
-|  val  |         24       | 131-162  |    56  |
-|  test |         42       | 163-216  |    96   |
+|  Type | Normal | Pneumonia | COVID-19 | Total |
+|:-----:|:------:|:---------:|:--------:|:-----:|
+| train |  27201 |    22061  |   12520  | 61782 |
+|  Val  |   9107 |     7400  |   4529   | 21036 |
+|  test |   9450 |     7395  |   4346   | 21191 |
 
 ## Results
 These are the final results for the AI models.
 
-### Covid19 X-Ray Model (100 COVID-19 Test Images)
+### Covid19 X-Ray Model (490 COVID-19 Test Images)
 <div class="tg-wrap"><table class="tg">
   <tr>
     <th class="tg-7btt" colspan="3">Sensitivity (%)</th>
@@ -123,26 +118,49 @@ These are the final results for the AI models.
   </tr>
 </table></div>
 
-### Covid19 CT Model
+### Covid19 CT Scan Model
 
-F1: 0.85
+<div class="tg-wrap"><table class="tg">
+  <tr>
+    <th class="tg-7btt" colspan="3">Sensitivity (%)</th>
+  </tr>
+  <tr>
+    <td class="tg-7btt">Normal</td>
+    <td class="tg-7btt">Pneumonia</td>
+    <td class="tg-7btt">COVID-19</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">100</td>
+    <td class="tg-c3ow">99.0</td>
+    <td class="tg-c3ow">97.3</td>
+  </tr>
+</table></div>
 
-Accuracy: 0.86
-
-AUC: 0.94
+<div class="tg-wrap"><table class="tg">
+  <tr>
+    <th class="tg-7btt" colspan="3">Positive Predictive Value (%)</th>
+  </tr>
+  <tr>
+    <td class="tg-7btt">Normal</td>
+    <td class="tg-7btt">Pneumonia</td>
+    <td class="tg-7btt">COVID-19</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">99.4</td>
+    <td class="tg-c3ow">98.4</td>
+    <td class="tg-c3ow">99.7</td>
+  </tr>
+</table></div>
 
 
 ## Motivation
 
 With shortages and delays in PCR tests, chest X-Rays and CTs have become one of the fastest and most affordable ways for doctors to triage patients. In many hospitals, patients often have to wait six hours or more for a specialist to look at their X-Rays or CTs. If an emergency room doctor could get an initial reading from an AI-based tool, it could dramatically shrink that wait time. Before the pandemic, health-care AI was already a booming area of research. Deep learning, in particular, has demonstrated impressive results for analyzing medical images to identify diseases like breast and lung cancer or glaucoma at least as accurately as human specialists.
 
-## Acknowledgements
-
-We would like to thank deeply the team behind [COVID-Net Open Source Initiative](https://github.com/lindawangg/COVID-Net) and Self-trans Open Source Initiative (https://github.com/UCSD-AI4H/COVID-CT) . Our project is an attempt to incorporate COVID-Net as well as Self-Trans model into the heart of a web-based application that could be used by health care providers as a supportive tool on the examination process and patient triage.
 
 ## Demo
 
-A live demo of the web application is currently running here: https://covid-ai-assistant.herokuapp.com/
+A live demo of the web application is currently running here: https://covid19-diagnosis-ai.herokuapp.com/
 
 ## How to use
 
