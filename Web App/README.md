@@ -192,7 +192,4 @@ A live demo of the web application is currently running here: https://covid19-di
     <img src="screenshots/127.0.0.1_5000_uploaded_ct (1).png" alt="" width="90%" height="50%">
 </p>
 
-## Future
 
-1) Enrich the dataset with other CT and X-Ray images.
-2) Improve the detection accuracy.
