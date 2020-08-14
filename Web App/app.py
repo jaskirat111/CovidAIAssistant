@@ -1,25 +1,20 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat Mar 17 15:40:29 2018
-
-@author: Kaushik
+@author: Jaskirat Singh
 """
 
 from flask import Flask, render_template, request, session, redirect, url_for, flash
 import os
 import sys
-import torch
-from torchvision import models,transforms
-import torch.nn as nn
-import torch.nn.functional as F
-
+import uuid
+import urllib.request
 from werkzeug.utils import secure_filename
 # from tensorflow.keras.models import load_model
 # import matplotlib.pyplot as plt
 import tensorflow as tf
 import cv2
 import numpy as np
-from PIL import Image
+from data_utils import auto_body_crop
 
 UPLOAD_FOLDER = './flask app/assets/images'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
@@ -85,6 +80,7 @@ frozen_graph = "models/saved_model.pb"
 with tf.gfile.GFile(frozen_graph, "rb") as f:
     graph_def = tf.GraphDef()
     graph_def.ParseFromString(f.read())
+    
 class GradCAM:
     def __init__(self, graph, classes, outLayer, targetLayer=None):
         self.graph = graph
@@ -149,6 +145,7 @@ mapping = {'normal': 0, 'pneumonia': 1, 'COVID-19': 2}
 inv_mapping = {0: 'normal', 1: 'pneumonia', 2: 'COVID-19'}
 
 
+
 @app.route('/uploaded_chest', methods=['POST', 'GET'])
 def uploaded_chest():
     if request.method == 'POST':
@@ -160,13 +157,14 @@ def uploaded_chest():
         # if user does not select file, browser also
         # submit a empty part without filename
         if file.filename == '':
-            flash('No selected file')
+            flash('No file selected for uploading')
             return redirect('upload.html')
         if file:
-            # filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'upload_chest.jpg'))
+            filename = secure_filename(file.filename)
+            file_path =os.path.join(app.config['UPLOAD_FOLDER'],filename)
+            file.save(file_path)
 
-            origin_im = cv2.imread('./flask app/assets/images/upload_chest.jpg')  # read file
+            origin_im = cv2.imread(file_path)  # read file
             origin_im = cv2.cvtColor(origin_im, cv2.COLOR_BGR2RGB)
             x=origin_im
             h, w, c = x.shape
@@ -203,7 +201,10 @@ def uploaded_chest():
                 cam3 = np.uint8(255*cam3)
                 cam3 = cv2.applyColorMap(cam3, cv2.COLORMAP_JET)
                 new_im = cam3*0.3 + origin_im*0.5
-                cv2.imwrite(os.path.join(app.config['UPLOAD_FOLDER'], 'grad-cam.png'),new_im)
+                filename1 = my_random_string(10) + filename
+                filename2 = my_random_string(12) + filename
+                os.rename(file_path, os.path.join(app.config['UPLOAD_FOLDER'], filename1))
+                cv2.imwrite(os.path.join(app.config['UPLOAD_FOLDER'], filename2),new_im)
                 print("GradCAM image saved ")
 
             print(pred)
@@ -213,36 +214,21 @@ def uploaded_chest():
             print(pred_proba)
             print(pred_class)
             result = pred_class.capitalize()
-            return render_template('results_chest.html', result=result, probability=pred_proba)
+            # check if models exists
+            return render_template('results_chest.html', result=result, probability=pred_proba,imagesource='/assets/images/'+filename1,imagesource1='/assets/images/'+filename2)
 
-class_names=['COVID','NON-COVID']
-def get_tensor(img):
-	my_transforms=transforms.Compose([transforms.Resize((224,224)),
-                                          transforms.ToTensor(),
-		                          transforms.Normalize(mean=[0.45271412, 0.45271412, 0.45271412],std=[0.33165374, 0.33165374, 0.33165374])])
-	return my_transforms(img).unsqueeze(0)
+frozen_graph1 = "models/saved_model_CT.pb"
+with tf.gfile.GFile(frozen_graph1, "rb") as f:
+    graph_def1 = tf.GraphDef()
+    graph_def1.ParseFromString(f.read())
     
-def get_model():
-	checkpoint_path='models/Self-Trans.pt'
-	model=models.densenet169(pretrained=True)
-	model.load_state_dict(torch.load(checkpoint_path,map_location=torch.device('cpu')))
-	model.eval()
-	return model
+def my_random_string(string_length=10):
+    """Returns a random string of length string_length."""
+    random = str(uuid.uuid4()) # Convert UUID format to a Python string.
+    random = random.upper() # Make all characters uppercase.
+    random = random.replace("-","") # Remove the UUID '-'.
+    return random[0:string_length] # Return the random string.
     
-model=get_model()
-
-def model_predict(img):
-    
-    tensor=get_tensor(img)
-    outputs=model(tensor)
-    _,prediction=outputs.max(1)
-    score = F.softmax(outputs, dim=1)
-    finalscore,_=score.max(1)
-    category=prediction.item()
-    scored=finalscore.item()
-    pred_proba = "{:.2f}".format(scored*100)
-    classifier_name=class_names[category]
-    return classifier_name, pred_proba
 
 @app.route('/uploaded_ct', methods=['POST', 'GET'])
 def uploaded_ct():
@@ -255,21 +241,66 @@ def uploaded_ct():
         # if user does not select file, browser also
         # submit a empty part without filename
         if file.filename == '':
-            flash('No selected file')
+            flash('No file selected for uploading')
             return redirect('upload.html')
         if file:
-            # filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'upload_ct.jpg'))
+            filename = secure_filename(file.filename)
+            file_path =os.path.join(app.config['UPLOAD_FOLDER'],filename)
+            file.save(file_path)
+             # Load and preprocess image
+            origin_im = cv2.imread(file_path)  # read file
+            origin_im = cv2.cvtColor(origin_im, cv2.COLOR_BGR2RGB)
+            print(origin_im.shape)
+            h, w, c = origin_im.shape
+            image = cv2.imread(file_path,cv2.IMREAD_GRAYSCALE)  # read file
+            image, _ = auto_body_crop(image)
+            image = cv2.resize(image, (512, 512), cv2.INTER_CUBIC)
+            image = image.astype(np.float32) / 255.0
+            image = np.expand_dims(np.stack((image, image, image), axis=-1), axis=0)
+            with tf.Graph().as_default() as graph:
+                tf.import_graph_def(
+                    graph_def1, 
+                    input_map=None, 
+                    return_elements=None, 
+                    name="", 
+                    #op_dict=None, 
+                    #producer_op_list=None
+                    )
+                image_tensor = graph.get_tensor_by_name("Placeholder:0")
+                pred_tensor  = graph.get_tensor_by_name("softmax_tensor:0")
+                TRAINING_PH_TENSOR= graph.get_tensor_by_name("is_training:0")
 
-            image = cv2.imread('./flask app/assets/images/upload_ct.jpg')  # read file
-            
-            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-            im_pil = Image.fromarray(image)
-            preds,pred_proba = model_predict(im_pil)
-            return render_template('results_ct.html',result=preds, probability=pred_proba)
-
-
+                sess= tf.Session(graph=graph)
+                gradCam = GradCAM(graph=graph, classes = [0,1,2], outLayer="softmax_tensor:0", targetLayer="resnet_model/add_15:0")
+                grads = gradCam.compute_grads()
+                size_upsample = (w,h)
+                 # Create feed dict
+                feed_dict = {image_tensor: image, TRAINING_PH_TENSOR: False}
+                pred = sess.run(pred_tensor, feed_dict)
+                
+                output, grads_val = sess.run([gradCam.target, grads[pred.argmax(axis=1)[0]]], feed_dict)
+                cam3 = generate_cam(output[0],grads_val[0],size_upsample)
+                
+                # Overlay cam on image
+                cam3 = np.uint8(255*cam3)
+                cam3 = cv2.applyColorMap(cam3, cv2.COLORMAP_JET)
+                new_im = cam3*0.3 + origin_im*0.5
+                filename1 = my_random_string(10) + filename
+                filename2 = my_random_string(12) + filename
+                os.rename(file_path, os.path.join(app.config['UPLOAD_FOLDER'], filename1))
+                cv2.imwrite(os.path.join(app.config['UPLOAD_FOLDER'], filename2),new_im)
+                print("GradCAM CT image saved ")
+                
+            print(pred)
+            inv_mapping = {0: 'normal', 1: 'pneumonia', 2: 'COVID-19'}
+            pred_class = inv_mapping[pred.argmax(axis=1)[0]]
+            pred_proba = "{:.2f}".format((pred.max(axis=1)[0])*100)
+            print(pred_proba)
+            print(pred_class)
+            result = pred_class.capitalize()    
+            return render_template('results_ct.html',result=result, probability=pred_proba,imagesource='/assets/images/'+filename1,imagesource1='/assets/images/'+filename2)
+        
 if __name__ == '__main__':
     app.secret_key = ".."
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='127.0.0.1', port=port)
+    app.run(debug=True,host='127.0.0.1', port=port)
