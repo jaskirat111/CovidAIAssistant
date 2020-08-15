@@ -106,7 +106,7 @@ Patient distribution
 ## Results
 These are the final results for the AI models.
 
-### Covid19 X-Ray Model (490 COVID-19 Test Images)
+### Covid19 X-Ray Model (100 COVID-19 Test Images)
 <div class="tg-wrap"><table class="tg">
   <tr>
     <th class="tg-7btt" colspan="3">Sensitivity (%)</th>
