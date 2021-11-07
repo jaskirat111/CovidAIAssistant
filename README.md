@@ -7,6 +7,10 @@ The outbreak of coronavirus disease 2019 (COVID-19) has been declared a public h
 
 https://docs.google.com/presentation/d/1X04eVxvHL3xGZ4_EUbhtBY4Xal3BBAHNWRg5A4Gvad4/edit?usp=sharing
 
+## Article Link
+
+https://medium.com/@jaskirat_singh/social-distance-monitoring-and-face-mask-detection-ai-system-for-covid-19-6044073896d8
+
 ## How to use Flask App
 <ul>
   <li>Download repo, change to directory of Web App, go to command prompt and run <b>pip install -r requirements.txt</b></li>
