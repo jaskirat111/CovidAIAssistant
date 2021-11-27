@@ -11,6 +11,10 @@ https://docs.google.com/presentation/d/1X04eVxvHL3xGZ4_EUbhtBY4Xal3BBAHNWRg5A4Gv
 
 https://medium.com/@jaskirat_singh/social-distance-monitoring-and-face-mask-detection-ai-system-for-covid-19-6044073896d8
 
+## Video Link
+
+https://youtu.be/2qXDVZhai8U
+
 ## How to use Flask App
 <ul>
   <li>Download repo, change to directory of Web App, go to command prompt and run <b>pip install -r requirements.txt</b></li>
